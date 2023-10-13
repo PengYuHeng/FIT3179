@@ -116,10 +116,8 @@
                 "tooltip": [
                     {
                         "field": "Location", "type": "nominal", "title": "Country"
-                    },
-                    {
-                        "field": "CNMR", "type": "quantitative", "title": "Net Migration Rate"
                     }
+                    
                 ]
             }
         },
