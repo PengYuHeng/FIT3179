@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": {
-        "text": "Net Migration Rate (Per 1000 Population) of Countries From 2000 to 2020",
+        "text": "Global Human Trafficking Cases across the Years",
         "fontSize": 18
     },
     "width": 868,
@@ -106,11 +106,11 @@
                 "color": {
                   "field": "CNMR",
                   "type": "quantitative",
-                  "title": "Net Migration Rate",
+                  "title": "Number of Cases",
                   "scale": {
                     "type": "threshold",
-                    "domain": [-10, -5, 0, 5, 10],
-                    "domainMid": 0
+                    "domain": [0, 5, 10, 15, 20]
+
                   }
                 },
                 "tooltip": [
@@ -127,7 +127,7 @@
           "data": { "values": [{"Time": "2020", "Event": "Covid-19"}] },
           "mark": {"type": "text", "fontSize" : 16, "align" : "left", "fontWeight": "bold", "lineBreak": "\n"},
           "encoding": {
-            "text": { "value": "Observation:\nCountries in Africa and the Middle East\nappear to have the most fluctuations in\nmigration rates." },
+            "text": { "value": "" },
             "color": { "value": "gray" },
             "size": { "value": 12 },
             "x": { "value": 20 },
