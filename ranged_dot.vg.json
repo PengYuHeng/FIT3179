@@ -1,0 +1,120 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Suicide Rate by Age Groups for Males and Feamles",
+    "width": 800,
+    "height": 450,
+    "params": [
+      {
+        "name": "Year_selection",
+        "value": 2018,
+        "bind": {
+          "input": "range",
+          "min": 2005,
+          "max": 2018,
+          "step": 1,
+          "name": "Year: "
+        }
+      }
+    ],
+    "data": {
+      "url": "https://raw.githubusercontent.com/PengYuHeng/FIT3179/main/main_data/ranged_dot_plot.csv"
+    },
+    "transform": [
+      {
+        "filter": {
+          "field": "Age_group",
+          "oneOf": [
+            "0--8",
+            "9--17",
+            "18--20",
+            "21--23",
+            "24--26",
+            "27--29",
+            "30--38",
+            "39--47",
+            "48+"
+          ]
+        }
+      },
+      {"filter": {"field": "Sex", "oneOf": ["Male", "Female"]}},
+      {"filter": "datum.Year == Year_selection"},
+      {
+        "joinaggregate": [
+          {"op": "sum", "field": "Count", "as": "Count"}
+        ],
+        "groupby": ["Age_group", "Sex"]
+      }
+    ],
+    "encoding": {
+      "x": {
+        "field": "Count",
+        "type": "quantitative",
+        "title": "Suicide Rate",
+        "axis": {
+          "offset": 10,
+          "grid": false,
+          "values": [
+            0,
+            100,
+            200,
+            300,
+            400,
+            500,
+            600,
+            700,
+            800,
+            900,
+            1000
+          ]
+        },
+        "scale": {"domain": [0, 1000]}
+      },
+      "y": {
+        "field": "Age_group",
+        "type": "ordinal",
+        "sort": "descending",
+        "title": "Age Group",
+        "axis": {"offset": 20, "ticks": false, "minExtent": 50, "domain": false}
+      }
+    },
+    "layer": [
+      {
+        "mark": "line",
+        "encoding": {
+          "detail": {"field": "Age_group", "type": "ordinal"},
+          "color": {"value": "#787d7b"},
+          "size": {"value": 8},
+          "opacity": {"value": 0.5}
+        }
+      },
+      {
+        "mark": {"type": "point", "filled": true},
+        "encoding": {
+          "color": {
+            "field": "Sex",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Male", "Female"],
+              "range": ["#3944BC", "#D0312D"]
+            },
+            "title": "Sex"
+          },
+          "size": {"value": 300},
+          "tooltip": [
+            {"field": "Age_group", "type": "ordinal", "title": "Age group"},
+            {
+              "field": "Count",
+              "type": "quantitative",
+              "title": "Counts of Human Trafficking"
+            }
+          ],
+          "opacity": {"value": 1}
+        }
+      },
+      {
+        "mark": {"type": "text", "dx": -3, "dy": 18},
+        "encoding": {"text": {"field": "Count"}}
+      }
+    ],
+    "config": {"view": {"stroke": "transparent"}}
+  }
