@@ -1,10 +1,44 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Google's stock price over time.",
-    "data": {"url": "https://raw.githubusercontent.com/PengYuHeng/FIT3179/main/main_data/line.csv"},
-    "mark": "line",
-    "encoding": {
-      "x": {"field": "date", "type": "temporal", "title":"Year"},
-      "y": {"field": "price", "type": "quantitative", "title":"Cases"}
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {"url": "https://raw.githubusercontent.com/PengYuHeng/FIT3179/main/main_data/line_chart.csv"},
+  "width": 400,
+  "height": 300,
+  "encoding": {"x": {"field": "Year", "type": "temporal","axis": {"domain": false, "grid": false, "ticks": false}}},
+  "layer": [
+    {
+      "encoding": {
+        "color": {"field": "Category", "type": "nominal"},
+        "y": {"field": "Cases", "type": "quantitative"}
+      },
+      "layer": [
+        {"mark": "line"},
+        {"transform": [{"filter": {"param": "hover", "empty": false}}], "mark": "point"}
+      ]
+    },
+    {
+      "transform": [{"pivot": "Category", "value": "Cases", "groupby": ["Year"]}],
+      "mark": "rule",
+      "encoding": {
+        "opacity": {
+          "condition": {"value": 0.3, "param": "hover", "empty": false},
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Total", "type": "quantitative"},
+          {"field": "Male", "type": "quantitative"},
+          {"field": "Female", "type": "quantitative"}
+        ]
+      },
+      "params": [{
+        "name": "hover",
+        "select": {
+          "type": "point",
+          "fields": ["Year"],
+          "nearest": true,
+          "on": "mouseover",
+          "clear": "mouseout"
+        }
+      }]
     }
-  } 
+  ]
+}
