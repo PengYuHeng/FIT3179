@@ -1,6 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "https://raw.githubusercontent.com/PengYuHeng/FIT3179/main/main_data/line_chart.csv"},
+  "title": {
+    "text": "Cases Over the Years",
+    "fontSize": 18
+  },
   "width": 400,
   "height": 300,
   "encoding": {"x": {"field": "Year", "type": "temporal","axis": {"domain": false, "grid": false, "ticks": false}}},
