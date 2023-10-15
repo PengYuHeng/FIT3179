@@ -1,22 +1,19 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "data": {"url": "https://raw.githubusercontent.com/PengYuHeng/FIT3179/main/main_data/bar_chart.csv"},
-  "width": 400,
-  "encoding": {
-  "y": {"field": "country", "type": "nominal","sort": "-x", "title":""},
-  "x": {"field": "cases", "type": "quantitative"}
-},
-"layer": [{
-  "mark": "bar"
-}, {
-  "mark": {
-    "type": "text",
-    "align": "left",
-    "baseline": "middle",
-    "dx": 3
+  "data": {
+    "url": "https://raw.githubusercontent.com/PengYuHeng/FIT3179/main/main_data/bar_chart.csv"
   },
+  "width": 400,
+  "config": {"view": {"stroke": null}},
   "encoding": {
-    "text": {"field": "cases", "type": "quantitative"}
-  }
-}]
+    "y": {"field": "country", "type": "nominal", "sort": "-x", "title": ""},
+    "x": {"field": "cases", "type": "quantitative", "axis": {"domain": false, "grid": false, "ticks": false}}
+  },
+  "layer": [
+    {"mark": "bar"},
+    {
+      "mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 3},
+      "encoding": {"text": {"field": "cases", "type": "quantitative"}}
+    }
+  ]
 }
