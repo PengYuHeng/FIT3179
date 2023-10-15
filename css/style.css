@@ -64,25 +64,6 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
   font-size: 16px;
 }
-
-#vg-tooltip-element tr:nth-child(1) td:first-child {
-    color: #2470d3
-}
-
-#vg-tooltip-element tr:nth-child(2) td:first-child {
-    color: #ffb43a
-}
-
-#vg-tooltip-element tr:nth-child(3) td:first-child {
-    color: #c92a2a
-}
-
-#vg-tooltip-element tr:nth-child(4) td:first-child {
-    color: #1aa5b2
-}
-
-#vg-tooltip-element tr:nth-child(5) td:first-child {
-    color: #069837
 }
 
 #vg-tooltip-element tr:nth-child(6) td:first-child {
