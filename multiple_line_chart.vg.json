@@ -9,7 +9,7 @@
     {
       "encoding": {
         "color": {"field": "Category", "type": "nominal", "scale": {"range": ["red", "blue", "green"]}},
-        "y": {"field": "Cases", "type": "quantitative"}
+        "y": {"field": "Cases", "type": "quantitative", "axis": {"domain": false, "grid": false, "ticks": false}}
       },
       "layer": [
         {"mark": "line"},
