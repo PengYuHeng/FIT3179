@@ -1,17 +1,14 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "https://raw.githubusercontent.com/PengYuHeng/FIT3179/main/main_data/line_chart.csv"},
-  "title": {
-    "text": "Cases Over the Years",
-    "fontSize": 18
-  },
   "width": 400,
-  "height": 300,
-  "encoding": {"x": {"field": "Year", "type": "temporal","axis": {"domain": false, "grid": false, "ticks": false}}},
+  "height": 200,
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal","axis": {"domain": false, "grid": false, "ticks": false}}},
   "layer": [
     {
       "encoding": {
-        "color": {"field": "Category", "type": "nominal"},
+        "color": {"field": "Category", "type": "nominal", "scale": {"range": ["red", "blue", "green"]}},
         "y": {"field": "Cases", "type": "quantitative"}
       },
       "layer": [
@@ -23,14 +20,15 @@
       "transform": [{"pivot": "Category", "value": "Cases", "groupby": ["Year"]}],
       "mark": "rule",
       "encoding": {
+        
         "opacity": {
           "condition": {"value": 0.3, "param": "hover", "empty": false},
           "value": 0
         },
         "tooltip": [
           {"field": "Total", "type": "quantitative"},
-          {"field": "Male", "type": "quantitative"},
-          {"field": "Female", "type": "quantitative"}
+          {"field": "Female", "type": "quantitative"},
+          {"field": "Male", "type": "quantitative"}
         ]
       },
       "params": [{

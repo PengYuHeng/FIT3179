@@ -1,11 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "A bar chart that sorts the y-values by the x-values.",
     "data": {"url": "https://raw.githubusercontent.com/PengYuHeng/FIT3179/main/main_data/bar_chart.csv"},
-    "title": {
-        "text": "Countries with the most trafficking cases",
-        "fontSize": 18
-      },
     "width": 400,
     "mark": "bar",
     "encoding": {
