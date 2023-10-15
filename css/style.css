@@ -64,8 +64,3 @@ body {
   background-color: rgba(255, 255, 255, 0.8);
   font-size: 16px;
 }
-}
-
-#vg-tooltip-element tr:nth-child(6) td:first-child {
-    color: #cbbf12
-}
