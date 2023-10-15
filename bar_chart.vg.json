@@ -6,6 +6,7 @@
         "text": "Top 10 Countries with the most cases from 2005 - 2018",
         "fontSize": 18
       },
+    "width": 400,
     "mark": "bar",
     "encoding": {
       "y": {
